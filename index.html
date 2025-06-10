@@ -8,19 +8,22 @@
     .error {
       color: red;
     }
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
   <h1>DOM Testing and User Behavior Simulation</h1>
 
-  <form id="item-form">
+  <form id="user-form">
     <input type="text" id="item-input" placeholder="Enter an item" />
     <button type="submit">Add Item</button>
   </form>
 
-  <ul id="item-list"></ul>
+  <div id="dynamic-content"></div>
 
-  <div id="error-msg" class="error"></div>
+  <div id="error-msg" class="error hidden"></div>
 
   <script src="index.js"></script>
 </body>
