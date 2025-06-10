@@ -2,28 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DOM Testing Lab</title>
   <style>
-    .error {
-      color: red;
-    }
     .hidden {
       display: none;
+    }
+    .error {
+      color: red;
     }
   </style>
 </head>
 <body>
-  <h1>DOM Testing and User Behavior Simulation</h1>
+  <h1>DOM Testing and User Behavior Simulation Lab</h1>
 
   <form id="user-form">
-    <input type="text" id="item-input" placeholder="Enter an item" />
-    <button type="submit">Add Item</button>
+    <input type="text" />
+    <button type="submit">Submit</button>
   </form>
 
   <div id="dynamic-content"></div>
 
-  <div id="error-msg" class="error hidden"></div>
+  <div id="error-msg" class="hidden error"></div>
+
+  <ul id="item-list"></ul>
 
   <script src="index.js"></script>
 </body>

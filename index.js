@@ -23,32 +23,28 @@ function addItem(item) {
   function handleFormSubmit(formId, contentId) {
     const form = document.getElementById(formId);
     const content = document.getElementById(contentId);
-    const error = document.getElementById("error-msg");
+    const errorMsg = document.getElementById("error-msg");
   
-    if (!form || !content || !error) return;
+    if (!form || !content || !errorMsg) return;
   
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       const input = form.querySelector("input");
-      if (!input) return;
   
-      const value = input.value.trim();
-  
-      if (value === "") {
-        showError("Input cannot be empty");
-        return;
+      if (!input || input.value.trim() === "") {
+        errorMsg.textContent = "Input cannot be empty";
+        errorMsg.classList.remove("hidden");
+        content.textContent = "";
+      } else {
+        content.textContent = input.value;
+        errorMsg.textContent = "";
+        errorMsg.classList.add("hidden");
       }
-  
-      clearError();
-      content.textContent = value;
-      input.value = "";
     });
   }
   
-  // Call this to attach the form handler when page loads
-  handleFormSubmit("user-form", "dynamic-content");
+  // Other DOM utility functions as needed:
   
-  // Additional DOM functions from your test output:
   function addElementToDOM(id, content) {
     const el = document.getElementById(id);
     if (el) el.textContent = content;
@@ -64,13 +60,19 @@ function addItem(item) {
     if (el) el.textContent = content;
   }
   
-  module.exports = {
-    addItem,
-    showError,
-    clearError,
-    handleFormSubmit,
-    addElementToDOM,
-    removeElementFromDOM,
-    simulateClick,
-  };
+  // Initialize form submit handler
+  handleFormSubmit("user-form", "dynamic-content");
+  
+  // Export functions for testing if needed
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = {
+      addItem,
+      showError,
+      clearError,
+      handleFormSubmit,
+      addElementToDOM,
+      removeElementFromDOM,
+      simulateClick,
+    };
+  }
   
